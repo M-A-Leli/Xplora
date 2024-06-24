@@ -1,0 +1,18 @@
+<div class="menu" [class.open]="isOpen">
+  <div class="close-icon" (click)="close()">&#10006;</div>
+  <nav>
+    <ul>
+      <li><a (click)="navigateTo('/admin/dashboard/profile')">profile</a></li>
+      <li><a (click)="navigateTo('/admin/dashboard/admins')">admins</a></li>
+      <li><a (click)="navigateTo('/admin/dashboard/bookings')">bookings</a></li>
+      <li><a (click)="navigateTo('/admin/dashboard/categories')">categories</a></li>
+      <li><a (click)="navigateTo('/admin/dashboard/clients')">clients</a></li>
+      <li><a (click)="navigateTo('/admin/dashboard/payments')">payments</a></li>
+      <li><a (click)="navigateTo('/admin/dashboard/reviews')">reviews</a></li>
+      <li><a (click)="navigateTo('/admin/dashboard/tours')">tours</a></li>
+      <li><a (click)="navigateTo('/admin/dashboard/users')">users</a></li>
+      <li><a (click)="navigateTo('/admin/dashboard/logout')">logout</a></li>
+    </ul>
+  </nav>
+</div>
+<div class="overlay" [class.show]="isOpen" (click)="close()"></div>

@@ -1,0 +1,49 @@
+<main>
+  <div class="container">
+    <div class="right-display">
+      <div class="section">
+        <img src="/logo.svg" alt="logo">
+      </div>
+      <div class="section">
+        <h1>xplora</h1>
+      </div>
+      <div class="section">
+        <h3>Create an Account</h3>
+        <h4>Join us and start your journey!</h4>
+      </div>
+    </div>
+    <div class="left-display">
+      <form (ngSubmit)="onSubmit()">
+        <div class="input-group error-container">
+          <p class="error-message">{{ generalError }}</p>
+        </div>
+        <div class="input-group">
+          <label for="username">Username *</label>
+          <input type="text" name="username" id="username" placeholder="Enter username" autocomplete="off" [(ngModel)]="username" required>
+        </div>
+        <div class="input-group">
+          <label for="email">Email *</label>
+          <input type="email" name="email" id="email" placeholder="Enter email" autocomplete="off" [(ngModel)]="email" required>
+        </div>
+        <div class="input-group">
+          <label for="firstName">First Name *</label>
+          <input type="text" name="firstName" id="firstName" placeholder="Enter first name" autocomplete="off" [(ngModel)]="firstName" required>
+        </div>
+        <div class="input-group">
+          <label for="lastName">Last Name *</label>
+          <input type="text" name="lastName" id="lastName" placeholder="Enter last name" autocomplete="off" [(ngModel)]="lastName" required>
+        </div>
+        <div class="input-group">
+          <label for="phoneNumber">Phone Number *</label>
+          <input type="tel" name="phoneNumber" id="phoneNumber" placeholder="Enter phone number" autocomplete="off" [(ngModel)]="phoneNumber">
+        </div>
+        <div class="input-group">
+          <button type="submit">Register</button>
+        </div>
+        <div class="input-group">
+          <p>Already have an account? <a href="/login">Login here</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>

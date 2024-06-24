@@ -1,0 +1,35 @@
+<div class="tour-list">
+  <h2>Tours</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Destination</th>
+        <th>Price</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tour of tours">
+        <td>{{ tour.title }}</td>
+        <td>{{ tour.description }}</td>
+        <td>{{ tour.destination }}</td>
+        <td>{{ tour.price }}</td>
+        <td>{{ tour.start_date }}</td>
+        <td>{{ tour.end_date }}</td>
+        <td>
+          <button (click)="viewTour(tour.id)">View</button>
+          <button (click)="editTour(tour.id)">Edit</button>
+          <button (click)="deleteTour(tour.id)">Delete</button>
+        </td>
+      </tr>
+      <tr *ngIf="tours.length === 0">
+        <td colspan="6">No tours found</td>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="error" class="error">{{ error }}</div>
+</div>

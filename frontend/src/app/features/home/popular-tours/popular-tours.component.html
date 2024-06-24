@@ -1,0 +1,13 @@
+<div class="popular-tours">
+  <div class="tours-container">
+    <h2>Popular Tours</h2>
+    <div class="tours-grid">
+      <div class="tour-card" *ngFor="let tour of tours">
+        <img [src]="tour.image" alt="{{ tour.title }}">
+        <h3>{{ tour.title }}</h3>
+        <p>{{ tour.description }}</p>
+        <button (click)="learnMore(tour.id)">Learn More</button>
+      </div>
+    </div>
+  </div>
+</div>

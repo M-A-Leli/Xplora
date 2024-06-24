@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="95" fill="#F7F7F7" stroke="#4CAF50" stroke-width="10"/>
+
+  <!-- Compass Symbol -->
+  <path d="M100 10 L80 80 L10 100 L80 120 Z" fill="#4CAF50"/>
+  <circle cx="100" cy="100" r="8" fill="#4CAF50"/>
+
+  <!-- Letter X (Integrated with Compass) -->
+  <text x="65" y="120" font-family="Arial, sans-serif" font-size="50" fill="#4CAF50" transform="rotate(-45 65,120)">X</text>
+
+  <!-- Text "plora" -->
+  <text x="110" y="145" font-family="Arial, sans-serif" font-size="28" fill="#4CAF50">plora</text>
+</svg>

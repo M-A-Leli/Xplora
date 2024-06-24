@@ -1,0 +1,9 @@
+<div class="tour-card">
+  <img [src]="tour.TourImages[0].image_path" alt="Tour Image">
+  <h2>{{ tour.title }}</h2>
+  <p>{{ tour.description }}</p>
+  <p>Destination: {{ tour.destination }}</p>
+  <p>Price: ${{ tour.price }}</p>
+  <button (click)="bookTour()">Book Now</button>
+</div>
+

@@ -1,0 +1,157 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  user_id        String   @id @default(uuid())
+  username       String   @unique
+  email          String   @unique
+  password       String
+  salt           String
+  first_name     String
+  last_name      String
+  phone_number   String   @unique
+  created_at     DateTime @default(now())
+  updated_at     DateTime @updatedAt
+  deleted_at     DateTime?
+
+  Client         Client?
+  Admin          Admin?
+
+  Bookings       Booking[]
+  Reviews        Review[]
+  PasswordResets PasswordReset[]
+
+  @@map("Users")
+}
+
+model Client {
+  client_id String @id @default(uuid())
+  user_id   String @unique
+  deleted_at DateTime?
+
+  User      User @relation(fields: [user_id], references: [user_id])
+
+  @@map("Clients")
+}
+
+model Admin {
+  admin_id String @id @default(uuid())
+  user_id  String @unique
+  deleted_at DateTime?
+
+  User     User @relation(fields: [user_id], references: [user_id])
+
+  @@map("Admins")
+}
+
+model Category {
+  category_id   String @id @default(uuid())
+  category_name String
+  created_at    DateTime @default(now())
+  updated_at    DateTime @updatedAt
+  deleted_at    DateTime?
+
+  Tours         Tour[]
+
+  @@map("Categories")
+}
+
+model Tour {
+  tour_id     String     @id @default(uuid())
+  title       String
+  description String
+  destination String
+  price       Decimal
+  category_id String
+  start_date  DateTime
+  end_date    DateTime
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  deleted_at  DateTime?
+
+  Category    Category @relation(fields: [category_id], references: [category_id])
+
+  Bookings    Booking[]
+  Reviews     Review[]
+  TourImages  TourImage[]
+
+  @@map("Tours")
+}
+
+model TourImage {
+  image_id   String @id @default(uuid())
+  tour_id    String
+  image_path String
+  deleted_at DateTime?
+
+  Tour       Tour @relation(fields: [tour_id], references: [tour_id])
+
+  @@map("TourImages")
+}
+
+model Booking {
+  booking_id   String   @id @default(uuid())
+  user_id      String
+  tour_id      String
+  booking_date DateTime @default(now())
+  status       String   @default("PENDING") // Possible values: "PENDING", "CONFIRMED", "CANCELLED", "COMPLETED"
+  created_at   DateTime @default(now())
+  updated_at   DateTime @updatedAt
+  deleted_at   DateTime?
+
+  User         User @relation(fields: [user_id], references: [user_id])
+  Tour         Tour @relation(fields: [tour_id], references: [tour_id])
+
+  Payments     Payment[]
+
+  @@map("Bookings")
+}
+
+model Review {
+  review_id   String   @id @default(uuid())
+  user_id     String
+  tour_id     String
+  rating      Float
+  comment     String
+  created_at  DateTime @default(now())
+  deleted_at  DateTime?
+
+  User        User @relation(fields: [user_id], references: [user_id])
+  Tour        Tour @relation(fields: [tour_id], references: [tour_id])
+
+  @@map("Reviews")
+}
+
+model PasswordReset {
+  reset_id        String   @id @default(uuid())
+  user_id         String
+  reset_code      String
+  expiration_time DateTime
+  is_valid        Boolean  @default(true)
+  created_at      DateTime @default(now())
+  deleted_at      DateTime?
+
+  User            User @relation(fields: [user_id], references: [user_id])
+
+  @@map("PasswordResets")
+}
+
+model Payment {
+  payment_id       String   @id @default(uuid())
+  booking_id       String
+  amount           Decimal  @db.Decimal(10,2)
+  payment_method   String
+  payment_status   String   @default("PENDING") // Possible values: "PENDING", "COMPLETED", "FAILED", "REFUNDED"
+  transaction_date DateTime @default(now())
+  deleted_at       DateTime?
+
+  Booking          Booking @relation(fields: [booking_id], references: [booking_id])
+
+  @@map("Payments")
+}

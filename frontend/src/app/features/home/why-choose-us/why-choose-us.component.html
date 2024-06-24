@@ -1,0 +1,12 @@
+<section class="why-choose-us">
+  <div class="container">
+    <h2>Why Choose Us</h2>
+    <div class="reasons">
+      <div *ngFor="let reason of reasons" class="reason">
+        <img [src]="reason.icon" alt="Icon">
+        <h3>{{ reason.title }}</h3>
+        <p>{{ reason.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,46 @@
+.why-choose-us {
+  padding: 50px 0;
+  background-color: #f8f9fa;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+.reasons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.reason {
+  width: 300px;
+  padding: 20px;
+  margin: 20px;
+  text-align: left;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.reason img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.reason h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.reason p {
+  font-size: 1rem;
+  color: #666666;
+}

@@ -1,0 +1,26 @@
+header {
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 60px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  height: 100%;
+  font-size: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 30px;
+  color: #1b3133;
+}
+
+.logo img {
+  /* border: 1px solid red; */
+  height: 100%;
+  width: auto;
+}

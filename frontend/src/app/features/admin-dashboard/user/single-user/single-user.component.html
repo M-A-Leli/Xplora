@@ -1,0 +1,8 @@
+<div *ngIf="user" class="user-card">
+  <h2>{{ user.username }}</h2>
+  <p><strong>Email:</strong> {{ user.email }}</p>
+  <p><strong>First Name:</strong> {{ user.first_name }}</p>
+  <p><strong>Last Name:</strong> {{ user.last_name }}</p>
+  <p><strong>Phone Number:</strong> {{ user.phone_number }}</p>
+</div>
+<div *ngIf="error" class="error">{{ error }}</div>

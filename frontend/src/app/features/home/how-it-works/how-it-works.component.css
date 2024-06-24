@@ -1,0 +1,43 @@
+.how-it-works {
+  padding: 50px 0;
+  background-color: #ffffff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+.steps {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.step {
+  flex: 1;
+  padding: 20px;
+  text-align: left;
+}
+
+.step .number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #007bff; /* Blue color */
+}
+
+.step h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.step p {
+  font-size: 1rem;
+  color: #666666;
+}

@@ -1,0 +1,39 @@
+nav {
+  /*! align-self: flex-end; */
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+nav a {
+  height: 100%;
+  text-decoration: none;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  padding: 10px 30px;
+}
+
+nav a:first-child {
+  background: transparent;
+  color: #007bff;
+}
+
+nav a:first-child:hover {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+nav a:last-child {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+}
+
+nav a:last-child:hover {
+  background-color: #0069d9;
+}

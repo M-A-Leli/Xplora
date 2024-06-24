@@ -1,0 +1,105 @@
+main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.container {
+  display: flex;
+  width: 90%;
+  max-width: 800px;
+  height: 70%;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.right-display, .left-display {
+  text-transform: capitalize;
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.right-display {
+  background-color: #4CAF50;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  color: #ffffff;
+}
+
+.right-display img {
+  max-width: 100px;
+  margin-bottom: 20px;
+}
+
+.left-display {
+  padding: 40px;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.section h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.section h3 {
+  font-size: 1.5rem;
+  font-weight: normal;
+  margin: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+.error-message {
+  color: #f44336;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #388E3C;
+}

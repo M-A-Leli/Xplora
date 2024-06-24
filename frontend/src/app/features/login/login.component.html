@@ -1,0 +1,41 @@
+<main>
+  <div class="container">
+    <div class="right-display">
+      <div class="section">
+        <img src="/logo.svg" alt="logo">
+      </div>
+      <div class="section">
+        <h1>xplora</h1>
+      </div>
+      <div class="section">
+        <h3>discover kenya, explore xplora!</h3>
+      </div>
+    </div>
+    <div class="left-display">
+      <form (ngSubmit)="onSubmit()">
+        <div class="input-group error-container">
+          <p class="error-message">{{ generalError }}</p>
+        </div>
+        <div class="input-group">
+          <label for="email">email *</label>
+          <input type="email" name="email" id="email" placeholder="example@email.com" autocomplete="off" [(ngModel)]="email" required>
+          <p class="error-message">{{ emailError }}</p>
+        </div>
+        <div class="input-group">
+          <label for="password">password *</label>
+          <input type="password" name="password" id="password" placeholder="********" autocomplete="off" [(ngModel)]="password" required>
+          <p class="error-message">{{ passwordError }}</p>
+        </div>
+        <div class="input-group">
+          <a href="/forgot-password">forgot password?</a>
+        </div>
+        <div class="input-group">
+          <button type="submit">login</button>
+        </div>
+        <div class="input-group">
+          <p>don't have an account? <a href="/register">register</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,64 @@
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #ffffff;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.menu.open {
+  transform: translateX(0);
+}
+
+.close-icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 1rem;
+  background-color: #2a9d8f;
+  color: #ffffff;
+  text-align: right;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  border-bottom: 1px solid #dddddd;
+}
+
+nav ul li a {
+  display: block;
+  padding: 1rem;
+  color: #264653;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  background-color: #f4a261;
+  color: #ffffff;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+
+.overlay.show {
+  opacity: 1;
+}

@@ -1,0 +1,13 @@
+<div class="menu" [class.open]="isOpen">
+  <div class="close-icon" (click)="close()">&#10006;</div>
+  <nav>
+    <ul>
+      <li><a (click)="navigateTo('/client/dashboard/profile')">profile</a></li>
+      <li><a (click)="navigateTo('/client/dashboard/bookings')">bookings</a></li>
+      <li><a (click)="navigateTo('/client/dashboard/payments')">payments</a></li>
+      <li><a (click)="navigateTo('/client/dashboard/reviews')">reviews</a></li>
+      <li><a (click)="navigateTo('/client/dashboard/logout')">logout</a></li>
+    </ul>
+  </nav>
+</div>
+<div class="overlay" [class.show]="isOpen" (click)="close()"></div>
