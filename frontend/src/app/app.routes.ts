@@ -59,6 +59,7 @@ import { TourListComponent } from './features/tour/tour-list/tour-list.component
 import { ProfileComponent } from './features/user-dashboard/profile/profile.component';
 import { AdminLogoutComponent } from './features/admin-dashboard/admin-logout/admin-logout.component';
 import { AdminProfileComponent } from './features/admin-dashboard/admin-profile/admin-profile.component';
+import { ReviewTourComponent } from './features/user-dashboard/booking/review-tour/review-tour.component';
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -74,12 +75,15 @@ export const routes: Routes = [
   { path: 'reset-password', component: ResetPasswordComponent },
   {
     path: 'client/dashboard', component: UserDashboardComponent, children: [
-      { path: '', redirectTo: 'profile', pathMatch: 'full' },
       { path: 'profile', component: ProfileComponent },
       { path: 'bookings', component: BookingComponent },
+      // { path: 'bookings', component: BookingComponent, children:[
+      //   {path: 'review/:id', component: ReviewTourComponent}
+      // ] },
       { path: 'payments', component: PaymentComponent },
       { path: 'reviews', component: ReviewComponent },
-      { path: 'logout', component: ReviewComponent }
+      { path: 'logout', component: ReviewComponent },
+      // ! { path: '', redirectTo: 'profile', pathMatch: 'full' }
     ]
   },
   {
@@ -90,11 +94,11 @@ export const routes: Routes = [
       {path: 'logout', component: AdminLogoutComponent},
       {
         path: 'admins', component: AdminComponent, children: [
-          { path: '', component: ListAdminsComponent },
-          { path: ':id', component: SingleAdminComponent },
           { path: 'create', component: CreateAdminComponent },
           { path: 'edit/:id', component: EditAdminComponent },
           { path: 'delete/:id', component: DeleteAdminComponent },
+          { path: ':id', component: SingleAdminComponent },
+          { path: '', component: ListAdminsComponent },
         ]
       },
       {
@@ -117,11 +121,11 @@ export const routes: Routes = [
       },
       {
         path: 'clients', component: ClientComponent, children: [
-          { path: '', component: ListClientsComponent },
-          { path: ':id', component: SingleClientComponent },
           { path: 'create', component: CreateClientComponent },
           { path: 'edit/:id', component: EditClientComponent },
           { path: 'delete/:id', component: DeleteClientComponent },
+          { path: ':id', component: SingleClientComponent },
+          { path: '', component: ListClientsComponent },
         ]
       },
       {
@@ -144,20 +148,20 @@ export const routes: Routes = [
       },
       {
         path: 'tours', component: TourComponent, children: [
-          { path: '', component: ListToursComponent },
-          { path: ':id', component: SingleTourComponent },
           { path: 'create', component: CreateTourComponent },
           { path: 'edit/:id', component: EditTourComponent },
           { path: 'delete/:id', component: DeleteTourComponent },
+          { path: ':id', component: SingleTourComponent },
+          { path: '', component: ListToursComponent },
         ]
       },
       {
         path: 'users', component: UserComponent, children: [
-          { path: '', component: ListUsersComponent },
-          { path: ':id', component: SingleUserComponent },
           { path: 'create', component: CreateUserComponent },
           { path: 'edit/:id', component: EditUserComponent },
           { path: 'delete/:id', component: DeleteUserComponent },
+          { path: ':id', component: SingleUserComponent },
+          { path: '', component: ListUsersComponent },
         ]
       },
     ]

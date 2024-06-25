@@ -6,36 +6,45 @@ import { CategoryService } from '../../../core/services/category.service';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../../core/services/auth.service';
 import { BookingService } from '../../../core/services/booking.service';
+import { HeaderComponent } from '../header/header.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tour-list',
   standalone: true,
-  imports: [CommonModule, TourCardComponent, FormsModule],
+  imports: [CommonModule, TourCardComponent, FormsModule, HeaderComponent],
   templateUrl: './tour-list.component.html',
   styleUrl: './tour-list.component.css'
 })
 export class TourListComponent {
 
-  tours: any[] = []; // Assuming this holds all tours initially
-  filteredTours: any[] = []; // Holds tours after filtering by category
-  categories: any[] = []; // Assuming this holds all categories
+  tours: any[] = [];
+  filteredTours: any[] = [];
+  categories: any[] = [];
 
-  selectedCategoryId: string = ''; // Initialize selected category ID
+  user_id: string = '';
+
+  selectedCategoryId: string = '';
 
   searchQuery: string = '';
 
-  constructor(private tourService: TourService, private categoryService: CategoryService, private authService: AuthService, private bookingService: BookingService) { }
+  errorMsg: string = '';
+
+  showErrorModal: boolean = false;
+  showSuccessModal: boolean = false;
+
+  constructor(private tourService: TourService, private categoryService: CategoryService, private authService: AuthService, private bookingService: BookingService, private router: Router) { }
 
   ngOnInit() {
-    this.loadTours(); // Initial load of all tours
-    this.loadCategories(); // Load categories for dropdown
+    this.loadTours();
+    this.loadCategories();
   }
 
   loadTours() {
     this.tourService.getAllTours().subscribe(
       (data) => {
         this.tours = data;
-        this.filteredTours = this.tours; // Initialize filteredTours with all tours
+        this.filteredTours = this.tours;
       },
       (error) => {
         console.error('Error fetching tours:', error);
@@ -60,7 +69,7 @@ export class TourListComponent {
     if (this.selectedCategoryId) {
       this.tourService.getToursByCategoryId(this.selectedCategoryId).subscribe(
         (data) => {
-          this.filteredTours = data; // Update filtered tours based on selected category
+          this.filteredTours = data;
         },
         (error) => {
           console.error('Error fetching tours by category:', error);
@@ -68,7 +77,7 @@ export class TourListComponent {
         }
       );
     } else {
-      this.filteredTours = this.tours; // Reset to all tours if no category selected
+      this.filteredTours = this.tours;
     }
   }
 
@@ -81,29 +90,46 @@ export class TourListComponent {
   }
 
   bookTour(tour: any) {
-    const token = this.authService.getToken(); // Assuming getCurrentUser() returns user details
+    const token = this.authService.getToken() as string;
     if (!token) {
-      console.error('User not authenticated.'); // Handle case where user is not authenticated
-      return;
-    }
+      this.router.navigateByUrl('/login');
+    } else {
+      this.user_id = this.authService.getUserId() as string;
 
-    const bookingData = {
-      user_id: '', //! Assuming user_id is accessible from user object
-      tour_id: tour.tour_id
-    };
-
-    this.bookingService.createBooking(bookingData).subscribe(
-      (response) => {
-        console.log('Booking successful:', response);
-        // Show success message to the user
-        alert('Booking successful!');
-        // Optionally update UI or navigate to booking details page
-      },
-      (error) => {
-        console.error('Error booking tour:', error);
-        // Show error message to the user
-        alert('Failed to book tour. Please try again.');
+      const newBooking = {
+        user_id: this.user_id,
+        tour_id: tour.tour_id
       }
-    );
+
+      this.bookingService.createBooking(newBooking).subscribe({
+        next: data => {
+          this.showSuccessModal = true;
+          setTimeout(() => {
+            this.showSuccessModal = false;
+          }, 3000);
+        },
+        error: err => {
+          if (err.status === 409) {
+            this.errorMsg = err.error.error.message;
+            this.showErrorModal = true;
+            setTimeout(() => {
+              this.showErrorModal = false;
+            }, 3000);
+          } else if (err.status === 404) {
+            this.errorMsg = err.error.error.message;
+            this.showErrorModal = true;
+            setTimeout(() => {
+              this.showErrorModal = false;
+            }, 3000);
+          } else {
+            this.errorMsg = 'An unexpected error occurred. Please try again.';
+            this.showErrorModal = true;
+            setTimeout(() => {
+              this.showErrorModal = false;
+            }, 3000);
+          }
+        }
+      });
+    }
   }
 }

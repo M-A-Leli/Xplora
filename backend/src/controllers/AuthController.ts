@@ -58,7 +58,7 @@ class AuthController {
             }
     
             // res.redirect(redirectUrl);
-            res.status(200).json({ token: accessToken, redirectUrl });
+            res.status(200).json({ token: accessToken, redirectUrl, user_id: user.user_id });
         } catch (error) {
             next(error);
         }

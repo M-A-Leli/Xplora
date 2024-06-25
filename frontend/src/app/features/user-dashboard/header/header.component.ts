@@ -11,7 +11,14 @@ import { MenuComponent } from '../menu/menu.component';
 export class HeaderComponent {
   menuOpen = false;
 
-  toggleMenu() {
+  toggleMenu(event?: MouseEvent) {
+    if (event) {
+      event.stopPropagation();  // Stop the click event from propagating
+    }
     this.menuOpen = !this.menuOpen;
+  }
+
+  closeMenu() {
+    this.menuOpen = false;
   }
 }

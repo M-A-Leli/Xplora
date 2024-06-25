@@ -12,19 +12,19 @@ export class PopularToursComponent {
   tours = [
     {
       id: 1,
-      image: 'assets/tour1.jpg',
+      image: '/tour1.jpeg',
       title: 'Nairobi National Park Tour',
       description: 'Explore the wildlife and nature of Nairobi National Park.',
     },
     {
       id: 2,
-      image: 'assets/tour2.jpg',
+      image: '/tour2.jpeg',
       title: 'Maasai Mara Safari',
       description: 'Experience the famous Maasai Mara with our guided safari.',
     },
     {
       id: 3,
-      image: 'assets/tour3.jpg',
+      image: '/tour3.jpeg',
       title: 'Mount Kenya Hike',
       description: 'Challenge yourself with a hike up Mount Kenya.',
     }

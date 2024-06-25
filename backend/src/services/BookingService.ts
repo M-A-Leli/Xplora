@@ -141,6 +141,22 @@ class BookingService {
         tour_id: true,
         booking_date: true,
         status: true,
+        Tour: {
+          select: {
+            title: true,
+            description: true,
+            destination: true,
+            price: true,
+            start_date: true,
+            end_date: true,
+            TourImages: {
+              where: { deleted_at: null },
+              select: {
+                image_path: true
+              }
+            },
+          }
+        }
       }
     });
 

@@ -3,8 +3,8 @@
     <img src="/logo.svg" alt="logo">
     <h1>Xplora client</h1>
   </div>
-  <div class="menu-icon" (click)="toggleMenu()">
+  <div class="menu-icon" (click)="toggleMenu($event)">
     &#9776;
   </div>
 </header>
-<app-menu [isOpen]="menuOpen" (closeMenu)="toggleMenu()"></app-menu>
+<app-menu [isOpen]="menuOpen" (closeMenu)="closeMenu()"></app-menu>

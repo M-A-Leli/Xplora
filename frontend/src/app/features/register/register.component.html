@@ -26,12 +26,12 @@
           <input type="email" name="email" id="email" placeholder="Enter email" autocomplete="off" [(ngModel)]="email" required>
         </div>
         <div class="input-group">
-          <label for="firstName">First Name *</label>
-          <input type="text" name="firstName" id="firstName" placeholder="Enter first name" autocomplete="off" [(ngModel)]="firstName" required>
+          <label for="password">Password *</label>
+          <input type="password" name="password" id="password" placeholder="Enter password" autocomplete="off" [(ngModel)]="password" required>
         </div>
         <div class="input-group">
-          <label for="lastName">Last Name *</label>
-          <input type="text" name="lastName" id="lastName" placeholder="Enter last name" autocomplete="off" [(ngModel)]="lastName" required>
+          <label for="fullName">Full Name *</label>
+          <input type="text" name="fullName" id="fullName" placeholder="Enter full name" autocomplete="off" [(ngModel)]="fullName" required>
         </div>
         <div class="input-group">
           <label for="phoneNumber">Phone Number *</label>
@@ -44,6 +44,14 @@
           <p>Already have an account? <a href="/login">Login here</a></p>
         </div>
       </form>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div class="modal" *ngIf="showSuccessModal">
+    <div class="modal-content">
+      <h2>Registration Successful!</h2>
+      <p>You have registered successfully. Redirecting...</p>
     </div>
   </div>
 </main>

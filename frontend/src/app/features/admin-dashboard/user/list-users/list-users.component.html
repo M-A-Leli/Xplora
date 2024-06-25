@@ -1,5 +1,9 @@
 <div class="user-list">
-  <h2>Users</h2>
+  <div class="top-bar">
+    <h2>Users</h2>
+    <button (click)="createUser()"><i class="fa fa-plus" aria-hidden="true"></i>
+    </button>
+  </div>
   <table>
     <thead>
       <tr>
@@ -19,9 +23,9 @@
         <td>{{ user.last_name }}</td>
         <td>{{ user.phone_number }}</td>
         <td>
-          <button (click)="viewUser(user.id)">View</button>
-          <button (click)="editUser(user.id)">Edit</button>
-          <button (click)="deleteUser(user.id)">Delete</button>
+          <button (click)="viewUser(user.user_id)">View</button>
+          <button (click)="editUser(user.user_id)">Edit</button>
+          <button (click)="deleteUser(user.user_id)">Delete</button>
         </td>
       </tr>
       <tr *ngIf="users.length === 0">

@@ -1,39 +1,54 @@
-<div class="sticky-topbar">
-  <!-- Top bar with search and category selection -->
-  <!-- <input type="text" placeholder="Search tours..." (input)="searchTours($event.target.value)"> -->
-  <!-- <input type="text" placeholder="Search tours..."> -->
-  <input type="text" placeholder="Search tours" [(ngModel)]="searchQuery" (keyup)="search()">
-  <div class="category-filter">
-    <label for="category">Select Category:</label>
-    <select id="category" [(ngModel)]="selectedCategoryId" (change)="filterByCategory()">
-      <option value="">All Categories</option>
-      <option *ngFor="let category of categories" [value]="category.category_id">
-        {{ category.category_name }}
-      </option>
-    </select>
+<app-header></app-header>
+<main>
+  <div class="sticky-topbar">
+    <!-- Top bar with search and category selection -->
+    <!-- <input type="text" placeholder="Search tours..." (input)="searchTours($event.target.value)"> -->
+    <!-- <input type="text" placeholder="Search tours..."> -->
+    <input type="text" placeholder="Search tours" [(ngModel)]="searchQuery" (keyup)="search()">
+    <div class="category-filter">
+      <label for="category">Select Category:</label>
+      <select id="category" [(ngModel)]="selectedCategoryId" (change)="filterByCategory()">
+        <option value="">All Categories</option>
+        <option *ngFor="let category of categories" [value]="category.category_id">
+          {{ category.category_name }}
+        </option>
+      </select>
+    </div>
   </div>
-</div>
 
-<div class="main-section">
-  <!-- <div class="tour-cards"> -->
-    <!-- Tour cards loop -->
-    <!-- <div *ngFor="let tour of tours">
-      <app-tour-card [tour]="tour"></app-tour-card>
-    </div> -->
-    <div class="tour-cards" *ngIf="filteredTours.length > 0; else noTours">
-      <div class="tour-card" *ngFor="let tour of filteredTours">
-        <img [src]="tour.TourImages[0].image_path" alt="Tour Image">
-        <div class="tour-details">
-          <h2>{{ tour.title }}</h2>
-          <p>{{ tour.description }}</p>
-          <p><strong>Destination:</strong> {{ tour.destination }}</p>
-          <p><strong>Price:</strong> ${{ tour.price }}</p>
-          <button (click)="bookTour(tour)" class="book-button">Book Now</button>
+  <div class="main-section">
+    <!-- <div class="tour-cards"> -->
+      <!-- Tour cards loop -->
+      <!-- <div *ngFor="let tour of tours">
+        <app-tour-card [tour]="tour"></app-tour-card>
+      </div> -->
+      <div class="tour-cards" *ngIf="filteredTours.length > 0; else noTours">
+        <div class="tour-card" *ngFor="let tour of filteredTours">
+          <!-- <img [src]="tour.TourImages[0].image_path" alt="Tour Image"> -->
+          <img src="/tour.jpg" alt="Tour Image">
+          <div class="tour-details">
+            <h2>{{ tour.title }}</h2>
+            <p>{{ tour.description }}</p>
+            <p><strong>Destination:</strong> {{ tour.destination }}</p>
+            <p><strong>Price:</strong> ${{ tour.price }}</p>
+            <button (click)="bookTour(tour)" class="book-button">Book Now</button>
+          </div>
         </div>
       </div>
+      <ng-template #noTours>
+        <p class="no-tours-message">No tours found.</p>
+      </ng-template>
     </div>
-    <ng-template #noTours>
-      <p class="no-tours-message">No tours found.</p>
-    </ng-template>
+  <!-- </div> -->
+
+  <div class="modal" *ngIf="showErrorModal">
+    <div class="modal-content">
+      <p id="error-msg"> {{ errorMsg }}</p>
+    </div>
   </div>
-<!-- </div> -->
+  <div class="modal" *ngIf="showSuccessModal">
+    <div class="modal-content">
+      <p id="success-msg">Booking successfull...</p>
+    </div>
+  </div>
+</main>

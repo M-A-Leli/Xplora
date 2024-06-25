@@ -1,6 +1,6 @@
 .why-choose-us {
   padding: 50px 0;
-  background-color: #f8f9fa;
+  background-color: #f4f4f4;
 }
 
 .container {
@@ -10,6 +10,7 @@
 }
 
 h2 {
+  color: #4CAF50;
   font-size: 2.5rem;
   margin-bottom: 30px;
 }
@@ -36,6 +37,7 @@ h2 {
 }
 
 .reason h3 {
+  color: #4CAF50;
   font-size: 1.5rem;
   margin-bottom: 10px;
 }

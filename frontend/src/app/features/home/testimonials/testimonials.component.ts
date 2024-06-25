@@ -11,17 +11,17 @@ import { Component } from '@angular/core';
 export class TestimonialsComponent {
   testimonials = [
     {
-      photo: 'assets/user1.jpg',
+      photo: '/user1.png',
       name: 'John Doe',
       feedback: 'Xplora made my trip to Kenya unforgettable. The tours were well organized and the guides were fantastic!'
     },
     {
-      photo: 'assets/user2.jpg',
+      photo: '/user2.png',
       name: 'Jane Smith',
       feedback: 'I loved the cultural excursions offered by Xplora. It was a great way to experience the local culture and traditions.'
     },
     {
-      photo: 'assets/user3.jpg',
+      photo: '/user3.png',
       name: 'Samuel Lee',
       feedback: 'The weekend getaways were perfect for a quick escape from the city. Highly recommended!'
     }

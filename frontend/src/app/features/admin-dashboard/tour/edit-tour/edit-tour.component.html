@@ -1,1 +1,58 @@
-<p>edit-tour works!</p>
+<div *ngIf="tour" class="edit-tour-form">
+  <button class="back-btn" (click)="goBack()"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+  <h2>Edit Tour</h2>
+  <form (ngSubmit)="updateTour()" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="title">Title *</label>
+      <input type="text" id="title" name="title" [(ngModel)]="tour.title" required>
+    </div>
+    <div class="form-group">
+      <label for="description">Description *</label>
+      <input type="text" id="description" name="description" [(ngModel)]="tour.description" required>
+    </div>
+    <div class="form-group">
+      <label for="destination">Destination *</label>
+      <input type="text" id="destination" name="destination" [(ngModel)]="tour.destination" required>
+    </div>
+    <div class="form-group">
+      <label for="price">Price *</label>
+      <input type="number" id="price" name="price" [(ngModel)]="tour.price" required>
+    </div>
+    <div class="form-group">
+      <label for="category">Category *</label>
+      <select id="category" [(ngModel)]="selectedCategoryId">
+        <option value="">Select</option>
+        <option *ngFor="let category of categories" [value]="category.category_id">
+          {{ category.category_name }}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="start_date">Start Date *</label>
+      <input type="datetime" id="start_date" name="start_date" [(ngModel)]="tour.start_date" required>
+    </div>
+    <div class="form-group">
+      <label for="end_date">End Date *</label>
+      <input type="datetime" id="end_date" name="end_date" [(ngModel)]="tour.end_date" required>
+    </div>
+    <div class="form-group">
+      <label for="image_1">Image 1 *</label>
+      <input type="file" id="image_1" name="images" (change)="onFileChange($event, 0)" required>
+    </div>
+    <div class="form-group">
+      <label for="image_2">Image 2</label>
+      <input type="file" id="image_2" name="images" (change)="onFileChange($event, 1)">
+    </div>
+    <div class="form-group">
+      <label for="image_3">Image 3</label>
+      <input type="file" id="image_3" name="images" (change)="onFileChange($event, 2)">
+    </div>
+    <div class="form-group">
+      <label for="image_4">Image 4</label>
+      <input type="file" id="image_4" name="images" (change)="onFileChange($event, 3)">
+    </div>
+    <button type="submit">Update</button>
+  </form>
+  <div *ngIf="error" class="error">{{ error }}</div>
+  <div *ngIf="success" class="success">{{ success }}</div>
+</div>

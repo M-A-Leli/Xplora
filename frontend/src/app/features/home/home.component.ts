@@ -11,7 +11,6 @@ import { PopularToursComponent } from './popular-tours/popular-tours.component';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { WhyChooseUsComponent } from './why-choose-us/why-choose-us.component';
 import { RouterOutlet } from '@angular/router';
-// import { HeaderComponent } from '../../shared/components/header/header.component';
 
 @Component({
   selector: 'app-home',

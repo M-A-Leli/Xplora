@@ -1,0 +1,82 @@
+/* logout.component.css */
+/* .main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+} */
+
+.container {
+  display: flex;
+  width: 90%;
+  /* max-width: 800px; */
+  /* height: 70%; */
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.right-display, .left-display {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.right-display {
+  background-color: #4CAF50;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  color: #ffffff;
+}
+
+.right-display img {
+  max-width: 100px;
+  margin-bottom: 20px;
+}
+
+.left-display {
+  padding: 40px;
+}
+
+.left-display h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+  color: #333333; /* Adjust text color if needed */
+}
+
+.left-display p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #333333; /* Adjust text color if needed */
+}
+
+.logout-button, .stay-button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.logout-button {
+  background-color: #4CAF50;
+  color: #ffffff;
+}
+
+.stay-button {
+  background-color: #ffffff;
+  color: #4CAF50;
+  border: 1px solid #4CAF50;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}

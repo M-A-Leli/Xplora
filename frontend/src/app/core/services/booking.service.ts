@@ -56,6 +56,11 @@ export class BookingService {
     return this.http.get<any>(`${this.baseUrl}/status/${status}`, { headers });
   }
 
+  cancelBooking(bookingId: string): Observable<any> {
+    const headers = this.getAuthHeaders();
+    return this.http.delete<void>(`${this.baseUrl}/booking/${bookingId}`, { headers });
+  }
+
   searchBookings(queryParams: any): Observable<any> {
     const headers = this.getAuthHeaders();
     let params = new HttpParams();

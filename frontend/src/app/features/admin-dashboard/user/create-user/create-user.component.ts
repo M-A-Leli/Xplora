@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../../../core/services/user.service';
 import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -21,7 +21,7 @@ export class CreateUserComponent {
   };
   error: string = '';
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router, private location: Location) {}
 
   createUser(): void {
     this.userService.createUser(this.user).subscribe({
@@ -33,5 +33,9 @@ export class CreateUserComponent {
         console.error(err);
       }
     });
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }

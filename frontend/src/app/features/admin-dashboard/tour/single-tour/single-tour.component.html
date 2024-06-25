@@ -1,1 +1,19 @@
-<p>single-tour works!</p>
+<div *ngIf="tour" class="tour-card">
+  <div class="tour-img">
+    <!-- <img [src]="tour.TourImages[0].image_path" alt=""> -->
+    <img src="/tour.jpg" alt="">
+    <img src="/tour.jpg" alt="">
+    <img src="/tour.jpg" alt="">
+    <img src="/tour.jpg" alt="">
+  </div>
+  <div class="tour-details">
+    <button class="back-btn" (click)="goBack()"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+    <h2>{{ tour.title }}</h2>
+    <p><strong>description:</strong> {{ tour.description }}</p>
+    <p><strong>destination:</strong> {{ tour.destination }}</p>
+    <p><strong>price:</strong> {{ tour.price }}</p>
+    <p><strong>start_date:</strong> {{ tour.start_date }}</p>
+    <p><strong>end_date:</strong> {{ tour.end_date }}</p>
+  </div>
+</div>
+<div *ngIf="error" class="error">{{ error }}</div>

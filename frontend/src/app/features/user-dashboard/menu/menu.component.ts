@@ -14,13 +14,15 @@ export class MenuComponent {
 
   constructor(private router: Router) {}
 
-  close() {
+  close(event: MouseEvent) {
+    event.stopPropagation();  // Stop the click event from propagating
     this.closeMenu.emit();
   }
 
-  navigateTo(route: string) {
+  navigateTo(route: string, event: MouseEvent) {
+    event.stopPropagation();  // Stop the click event from propagating
     this.router.navigateByUrl(route).then(() => {
-      this.close();
+      this.close(event);
     });
   }
 }

@@ -1,5 +1,9 @@
 <div class="tour-list">
-  <h2>Tours</h2>
+  <div class="top-bar">
+    <h2>Tours</h2>
+    <button (click)="createTour()"><i class="fa fa-plus" aria-hidden="true"></i>
+    </button>
+  </div>
   <table>
     <thead>
       <tr>
@@ -21,9 +25,9 @@
         <td>{{ tour.start_date }}</td>
         <td>{{ tour.end_date }}</td>
         <td>
-          <button (click)="viewTour(tour.id)">View</button>
-          <button (click)="editTour(tour.id)">Edit</button>
-          <button (click)="deleteTour(tour.id)">Delete</button>
+          <button (click)="viewTour(tour.tour_id)">View</button>
+          <button (click)="editTour(tour.tour_id)">Edit</button>
+          <button (click)="deleteTour(tour.tour_id)">Delete</button>
         </td>
       </tr>
       <tr *ngIf="tours.length === 0">

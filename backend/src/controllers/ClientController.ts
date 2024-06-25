@@ -28,6 +28,8 @@ class ClientController {
   }
 
   createClient = async (req: Request, res: Response, next: NextFunction) => {
+    console.log(req.body);
+    
     try {
       const client = await this.clientService.createClient(req.body);
       res.status(201).json(client);

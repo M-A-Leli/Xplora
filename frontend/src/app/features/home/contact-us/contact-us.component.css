@@ -73,6 +73,10 @@
   border-radius: 4px;
 }
 
+.input-group textarea {
+  resize: none;
+}
+
 .input-group button {
   padding: 10px;
   font-size: 16px;

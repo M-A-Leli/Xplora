@@ -12,22 +12,22 @@ export class WhyChooseUsComponent {
   // Static data for "Why Choose Us" section
   reasons = [
     {
-      icon: 'assets/reason1.svg',
+      icon: '/reason1.svg',
       title: 'Expert Guides',
       description: 'Our tours are led by knowledgeable guides who ensure an enriching experience.'
     },
     {
-      icon: 'assets/reason2.svg',
+      icon: '/reason2.svg',
       title: 'Unique Experiences',
       description: 'Discover hidden gems and authentic cultural experiences across Kenya.'
     },
     {
-      icon: 'assets/reason3.svg',
+      icon: '/reason3.svg',
       title: 'Customized Trips',
       description: 'Tailor your trip according to your preferences and interests.'
     },
     {
-      icon: 'assets/reason4.svg',
+      icon: '/reason4.svg',
       title: 'Safety First',
       description: 'We prioritize your safety and adhere to high standards of travel safety.'
     }

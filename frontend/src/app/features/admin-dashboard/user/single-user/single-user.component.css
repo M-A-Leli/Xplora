@@ -1,3 +1,12 @@
+.back-btn {
+  background-color: #2ecc71;
+  color: #fff;
+  border: none;
+  padding: 5px 0;
+  width: 20%;
+  margin-bottom: 20px;
+}
+
 .user-card {
   padding: 20px;
   margin: 20px;

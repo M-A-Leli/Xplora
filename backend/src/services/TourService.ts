@@ -1,6 +1,7 @@
 import { Tour } from '@prisma/client';
 import createError from 'http-errors';
 import prisma from '../config/Prisma.Config';
+import { parseISO } from 'date-fns';
 
 class TourService {
   async getAllTours(): Promise<Partial<Tour>[]> {
@@ -63,11 +64,16 @@ class TourService {
     if (imagePaths.length > 4) {
       throw createError(400, 'A tour can have at most 4 images');
     }
-  
+
+    const startDate = parseISO(data.start_date);
+    const endDate = parseISO(data.end_date);
+
     try {
       const tour = await prisma.tour.create({
         data: {
           ...data,
+          start_date: startDate,
+          end_date: endDate,
           TourImages: {
             create: imagePaths.map(path => ({
               image_path: path
@@ -91,29 +97,35 @@ class TourService {
           }
         }
       });
-  
+
       return tour;
     } catch (error) {
       console.error('Error creating tour:', error);
       throw createError(500, 'Failed to create tour');
     }
   }
-  
+
   async updateTour(tour_id: string, data: Partial<Omit<Tour, 'tour_id'>>, imagePaths: string[]): Promise<Partial<Tour> | null> {
     if (imagePaths.length > 4) {
       throw createError(400, 'A tour can have at most 4 images');
     }
-
+  
     const existingTour = await prisma.tour.findUnique({ where: { tour_id, deleted_at: null } });
-
+  
     if (!existingTour) {
       throw createError(404, 'Tour not found');
     }
-
+  
+    // Parse the dates only if they exist in the data
+    const startDate = data.start_date ? parseISO(data.start_date.toString()) : existingTour.start_date;
+    const endDate = data.end_date ? parseISO(data.end_date.toString()) : existingTour.end_date;
+  
     const updatedTour = await prisma.tour.update({
       where: { tour_id },
       data: {
         ...data,
+        start_date: startDate,
+        end_date: endDate,
         TourImages: {
           deleteMany: { tour_id },
           create: imagePaths.map((path) => ({
@@ -138,7 +150,7 @@ class TourService {
         },
       }
     });
-
+  
     return updatedTour;
   }
 

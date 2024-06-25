@@ -24,9 +24,9 @@ export class TourService {
     return this.http.get<any>(`${this.baseUrl}/${id}`);
   }
 
-  createTour(tour: any): Observable<any> {
+  createTour(tourFormData: FormData): Observable<any> {
     const headers = this.getAuthHeaders();
-    return this.http.post<any>(this.baseUrl, tour, { headers });
+    return this.http.post<any>(this.baseUrl, tourFormData, { headers });
   }
 
   updateTour(id: string, tour: any): Observable<any> {

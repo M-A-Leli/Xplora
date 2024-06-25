@@ -1,1 +1,9 @@
-<p>single-client works!</p>
+<div *ngIf="client" class="client-card">
+  <button class="back-btn" (click)="goBack()"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+  <h2>{{ client.User.username }}</h2>
+  <p><strong>Email:</strong> {{ client.User.email }}</p>
+  <p><strong>First Name:</strong> {{ client.User.first_name }}</p>
+  <p><strong>Last Name:</strong> {{ client.User.last_name }}</p>
+  <p><strong>Phone Number:</strong> {{ client.User.phone_number }}</p>
+</div>
+<div *ngIf="error" class="error">{{ error }}</div>

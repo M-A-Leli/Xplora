@@ -47,6 +47,7 @@ class TourController {
 
   
  createTour = async (req: Request, res: Response, next: NextFunction) => {
+  console.log(req.body)
   upload(req, res, async (err) => {
     if (err) {
       return next(createError(400, err.message));
@@ -69,6 +70,7 @@ class TourController {
 }
 
   updateTour = async (req: Request, res: Response, next: NextFunction) => {
+    console.log(req.body)
     upload(req, res, async (err) => {
       if (err) {
         return next(createError(400, err.message));

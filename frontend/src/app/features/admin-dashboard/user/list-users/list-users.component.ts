@@ -43,4 +43,8 @@ export class ListUsersComponent {
   deleteUser(id: string): void {
     this.router.navigate(['/admin/dashboard/users/delete', id]);
   }
+
+  createUser() {
+    this.router.navigate(['/admin/dashboard/users/create']);
+  }
 }

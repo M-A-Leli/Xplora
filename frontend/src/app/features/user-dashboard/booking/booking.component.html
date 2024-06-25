@@ -1,1 +1,29 @@
-<p>booking works!</p>
+<div class="bookings-container" *ngIf="bookings.length > 0; else noBookings">
+  <div *ngFor="let booking of bookings" class="booking-card">
+    <img [src]="booking.Tour.TourImages[0]?.image_path" alt="{{ booking.Tour.title }}">
+    <div class="booking-info">
+      <h2>{{ booking.Tour.title }}</h2>
+      <p>{{ booking.Tour.description }}</p>
+      <p><strong>Destination:</strong> {{ booking.Tour.destination }}</p>
+      <p><strong>Price:</strong> ${{ booking.Tour.price }}</p>
+      <p><strong>Status:</strong> {{ booking.status }}</p>
+      <p><strong>Start Date:</strong> {{ booking.Tour.start_date | date }}</p>
+      <p><strong>End Date:</strong> {{ booking.Tour.end_date | date }}</p>
+      <!-- <button (click)="reviewTour(booking.tour_id)">Review Tour</button> -->
+      <button (click)="openCancelModal(booking.booking_id)">Cancel Booking</button>
+    </div>
+  </div>
+</div>
+<ng-template #noBookings>
+  <p class="no-bookings-message">No bookings for this user</p>
+</ng-template>
+
+<!-- Cancel Confirmation Modal -->
+<div *ngIf="showCancelModal" class="modal">
+  <div class="modal-content">
+    <h3>Confirm Cancellation</h3>
+    <p>Are you sure you want to cancel this booking?</p>
+    <button (click)="cancelBooking()">Yes</button>
+    <button (click)="closeCancelModal()">No</button>
+  </div>
+</div>

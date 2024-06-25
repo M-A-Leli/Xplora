@@ -3,8 +3,7 @@
   <div>
     <p>Are you sure you want to delete user <strong>{{ user.username }}</strong>?</p>
     <button (click)="deleteUser()">Delete</button>
-    <!-- <button (click)="cancel()">Cancel</button> -->
-    <button >Cancel</button>
+    <button (click)="cancel()">Cancel</button>
   </div>
 </div>
 <div *ngIf="error" class="error">{{ error }}</div>

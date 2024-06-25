@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './list-tours.component.css'
 })
 export class ListToursComponent {
+
   tours: any[] = [];
   error: string = '';
 
@@ -42,5 +43,9 @@ export class ListToursComponent {
 
   deleteTour(id: string): void {
     this.router.navigate(['/admin/dashboard/tours/delete', id]);
+  }
+
+  createTour() {
+    this.router.navigate(['/admin/dashboard/tours/create']);
   }
 }

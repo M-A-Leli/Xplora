@@ -18,7 +18,13 @@ export class MenuComponent {
     this.closeMenu.emit();
   }
 
-  navigateTo(route: string) {
+  // navigateTo(route: string) {
+  //   this.router.navigateByUrl(route).then(() => {
+  //     this.close();
+  //   });
+  // }
+
+  navigateTo(route: string, event: MouseEvent) {
     this.router.navigateByUrl(route).then(() => {
       this.close();
     });

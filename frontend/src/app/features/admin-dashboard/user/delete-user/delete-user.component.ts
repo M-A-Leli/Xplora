@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../../../core/services/user.service';
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 
 @Component({
   selector: 'app-delete-user',
@@ -18,7 +18,8 @@ export class DeleteUserComponent {
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -55,5 +56,9 @@ export class DeleteUserComponent {
         }
       });
     }
+  }
+
+  cancel(): void {
+    this.location.back();
   }
 }

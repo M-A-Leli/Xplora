@@ -16,7 +16,7 @@ export class BlogComponent {
       title: 'Exploring Wildlife in Kenya',
       author: 'John Doe',
       date: 'June 10, 2023',
-      image: 'assets/blog1.jpg',
+      image: '/blog1.jpeg',
       excerpt: 'Discover the diverse wildlife Kenya has to offer, from safaris to birdwatching.'
     },
     {
@@ -24,7 +24,7 @@ export class BlogComponent {
       title: 'Cultural Experiences in Nairobi',
       author: 'Jane Smith',
       date: 'July 5, 2023',
-      image: 'assets/blog2.jpg',
+      image: '/blog2.jpg',
       excerpt: 'Explore Nairobi\'s rich culture through food, art, and local traditions.'
     },
     {
@@ -32,7 +32,7 @@ export class BlogComponent {
       title: 'Hiking Adventures in Mount Kenya',
       author: 'Mike Johnson',
       date: 'August 20, 2023',
-      image: 'assets/blog3.jpg',
+      image: '/blog3.jpeg',
       excerpt: 'Embark on an unforgettable hiking journey to the summit of Mount Kenya.'
     }
     // Add more blog posts as needed
